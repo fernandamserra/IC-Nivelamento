@@ -20,18 +20,91 @@ print("\n")
 
 print("********* INICIO **********")
 
-corpo = [0,1,2,3,4,5]
-letras = []
-chutes = []
+acertos = []
+chutes = [""]
 erros = 0
+final = False
 
-while erros <= 6 or letras == len(chave) :
+for i in range(len(chave)):
+    print("_ ", end = "")
+
+print("\n")
+
+while erros <= 6 and final == False :
+    if erros == 0 :
+        print("||=====:====")
+        print("||     :     ")
+        print("||")
+        print("||")
+        print("||")
+        print("||")
+        print("================")
+    elif erros == 1 :
+        print("||=====:====")
+        print("||     :     ")
+        print("||     O")
+        print("||")
+        print("||")
+        print("||")
+        print("================")
+    elif erros == 2 :
+        print("||=====:====")
+        print("||     :     ")
+        print("||     O")
+        print("||     |")
+        print("||")
+        print("||")
+        print("================")
+    elif erros == 3 :
+        print("||=====:====")
+        print("||     :     ")
+        print("||     O")
+        print("||    /|")
+        print("||")
+        print("||")
+        print("================")
+    elif erros == 4 :
+        print("||=====:====")
+        print("||     :     ")
+        print("||     O")
+        print("||    /|\ ")
+        print("||")
+        print("||")
+        print("================")
+    elif erros == 5 :
+        print("||=====:====")
+        print("||     :     ")
+        print("||     O")
+        print("||    /|\ ")
+        print("||    / ")
+        print("||")
+        print("================")
+    else :
+        print("||=====:====")
+        print("||     :     ")
+        print("||     O")
+        print("||    /|\ ")
+        print("||    / \  ")
+        print("||")
+        print("================")
+
     chute = input("Digite uma letra : ")
-    for i in range(len(chave)) :
-        if chute == chave[i] :
-            chutes.append(chute)
-        else:
-            erros += 1
-else :
-    print("rsrs")
 
+    for i in range(len(chutes)) :
+        if chute != chutes[i] :
+            chutes.append(chute)
+        else :
+            print("\n")
+            print("Você já usou esta letra, tente outra !! ")
+            print("\n")
+
+    for i in range(len(chave)):
+        if chute == chave[i]:
+            acertos.append(chute)
+            print(chave[i], end="")
+        else:
+            print(" _ ", end="")
+
+    print("\n")
+else :
+    print("acabou")
