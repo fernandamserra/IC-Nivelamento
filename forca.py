@@ -1,110 +1,44 @@
 print("******** JOGO DA FORCA ********")
+palavra = input("Digite a palavra secreta : ")
 
-chave = input("Digite a palavra secreta : ")
-
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
+for i in range(10) :
+    print("\n")
 
 print("********* INICIO **********")
 
-acertos = []
+letras = []
 chutes = [""]
 erros = 0
-final = False
 
-for i in range(len(chave)):
-    print("_ ", end = "")
+for i in range(len(palavra)) :
+    letras.append(" _ ")
 
-print("\n")
-
-while erros <= 6 and final == False :
-    if erros == 0 :
-        print("||=====:====")
-        print("||     :     ")
-        print("||")
-        print("||")
-        print("||")
-        print("||")
-        print("================")
-    elif erros == 1 :
-        print("||=====:====")
-        print("||     :     ")
-        print("||     O")
-        print("||")
-        print("||")
-        print("||")
-        print("================")
-    elif erros == 2 :
-        print("||=====:====")
-        print("||     :     ")
-        print("||     O")
-        print("||     |")
-        print("||")
-        print("||")
-        print("================")
-    elif erros == 3 :
-        print("||=====:====")
-        print("||     :     ")
-        print("||     O")
-        print("||    /|")
-        print("||")
-        print("||")
-        print("================")
-    elif erros == 4 :
-        print("||=====:====")
-        print("||     :     ")
-        print("||     O")
-        print("||    /|\ ")
-        print("||")
-        print("||")
-        print("================")
-    elif erros == 5 :
-        print("||=====:====")
-        print("||     :     ")
-        print("||     O")
-        print("||    /|\ ")
-        print("||    / ")
-        print("||")
-        print("================")
-    else :
-        print("||=====:====")
-        print("||     :     ")
-        print("||     O")
-        print("||    /|\ ")
-        print("||    / \  ")
-        print("||")
-        print("================")
+gameover = False
+while gameover == False :
+    print("\n")
 
     chute = input("Digite uma letra : ")
-
     for i in range(len(chutes)) :
-        if chute != chutes[i] :
-            chutes.append(chute)
+        if chute == chutes[i] :
+            print("\n")
+            print("Digite outra letra pois esta já foi usada, meu chapa.")
+            break
         else :
-            print("\n")
-            print("Você já usou esta letra, tente outra !! ")
-            print("\n")
+            chutes.append(chute)
 
-    for i in range(len(chave)):
-        if chute == chave[i]:
-            acertos.append(chute)
-            print(chave[i], end="")
-        else:
-            print(" _ ", end="")
+    for i in range(len(palavra)) :
+        if chute == palavra[i] :
+            letras[i] = chute
+        print(letras[i], " ", end="")
 
-    print("\n")
+    if chute not in palavra :
+        print("\n")
+        erros += 1
+        print("Você agora possui ", erros ,"/6 erros.")
+
+    if erros == 6 :
+        gameover = True
+
 else :
-    print("acabou")
+    print("this shit is over")
+    print("A palavra secreta era '", palavra ,"'.")
