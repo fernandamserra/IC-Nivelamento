@@ -1,6 +1,3 @@
-x = input("Digite algo :")
-
-if x[0].isupper() :
-    print("Maiúscula")
-else :
-    print("Minúscula")
+x = input("Digite uma palavra : ")
+print("Tamanho da palavra : ", len(x) )
+print("Última letra : ", x[-1] )
